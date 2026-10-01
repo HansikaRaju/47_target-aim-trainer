@@ -1,36 +1,82 @@
 # Target Aim Trainer
 
-This project is a terminal-based target aim trainer using **Pygame**. It introduces students to interactive game design using object-oriented principles and real-time graphical rendering.
+A simple interactive aim-training game built using **Python and Pygame**. The game challenges the player to click targets as quickly and accurately as possible while they appear at random positions and gradually shrink over time.
+
+The project demonstrates real-time game rendering, event handling, collision detection, scoring, accuracy tracking, difficulty levels, game states, and sound feedback.
 
 ---
 
-## What’s Provided
+## Features
 
-A partially working version of an aim trainer with:
-
-- A single target that spawns at a random position and visually shrinks the longer it's on screen
-- Click-to-hit scoring, with a timed-out target counting as a miss
-- A countdown timer, score, and accuracy display
-
-You are expected to **analyze**, **interact with an AI assistant**, and **complete/fix** the game to make it fully functional.
-
-### **Use an LLM (e.g. ChatGPT or Claude) as your debugging and pair-programming partner for this lab.**
+- 🎯 Randomly positioned targets
+- 📉 Targets gradually shrink while active
+- 🖱️ Accurate click-based collision detection
+- ✅ Hit detection and scoring
+- ❌ Miss detection, including timed-out targets
+- 📊 Live score and accuracy tracking
+- ⏱️ Countdown round timer
+- 🏁 Game Over screen with final results
+- 🔄 Replay functionality
+- 🎚️ Easy, Medium, and Hard difficulty levels
+- 🔊 Sound feedback for hits, misses, and round completion
+- 🎮 Interactive Pygame-based graphical interface
 
 ---
 
-## Getting Started
+## How the Game Works
 
-### Setup
+A target appears at a random location on the screen and gradually becomes smaller as time passes.
 
-1. Clone the repo or download the project folder.
-2. Make sure you have Python 3.10+ installed.
-3. Install dependencies:
+- Clicking directly on the target registers a **hit**.
+- Clicking outside the target registers a **miss**.
+- If the target shrinks completely before being clicked, it is also counted as a **miss**.
+- A new target appears after each successful hit or missed target.
+- The player's score and accuracy are updated throughout the round.
+- When the round timer reaches zero, the final score and accuracy are displayed.
+- The player can then select a difficulty and replay or exit the game.
+
+---
+
+## Difficulty Levels
+
+The game provides three difficulty levels:
+
+| Difficulty | Description |
+|---|---|
+| Easy | Longer target lifespan and easier targets |
+| Medium | Balanced target speed and lifespan |
+| Hard | Shorter target lifespan and more challenging gameplay |
+
+---
+
+## Technologies Used
+
+- **Python 3**
+- **Pygame**
+- Object-Oriented Programming
+- Real-time event handling
+- 2D graphics rendering
+- Collision detection
+- Game state management
+
+---
+
+## Installation
+
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd target-aim-trainer
+```
+
+### 2. Install the required dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Run the game:
+### 3. Run the game
 
 ```bash
 python main.py
@@ -38,63 +84,50 @@ python main.py
 
 ---
 
+## Project Structure
 
-## Tasks to Complete
-
-Each task must be completed using an iterative process involving LLM suggestions and your critical code review.
-
-### Task 1: Refine Collision Detection
-
-> Late clicks well outside the small, shrunken target circle can still register as a hit. Investigate and enhance click accuracy so the clickable area always matches what's actually drawn on screen.
-
-### Task 2: Implement Game Over Condition
-
-> Add a screen that displays the final score and accuracy once the round timer reaches zero, then gracefully waits for input instead of just printing to the console.
-
-
-
-### Task 3: Add Replay Option
-
-> After Game Over, allow the user to play again by choosing a difficulty (Easy, Medium, or Hard target lifespan/size), or exit.
-
-
-
-### Task 4: Add Sound Feedback
-
-> Add basic sound effects for a successful hit, a miss (including a timed-out target), and the round ending.
-
-
-
----
-
-## Expected Behavior
-
-- A single target appears at a random position and shrinks the longer it stays on screen
-- Clicking the target scores a hit and immediately spawns a new one elsewhere
-- Clicking anywhere else counts as a miss; letting a target's timer run out also counts as a miss
-- A countdown timer, score, and live accuracy percentage are visible at all times
-- The round ends when the timer reaches zero
-
----
-
-## Folder Structure
-
-```
-target-aim-trainer-main/
+```text
+target-aim-trainer/
 ├── main.py
 ├── requirements.txt
-├── game/
-│   ├── game_engine.py
-│   └── target.py
-└── README.md
+├── README.md
+└── game/
+    ├── game_engine.py
+    └── target.py
 ```
+
+### File Description
+
+**`main.py`**  
+Entry point of the application. Initializes and runs the game.
+
+**`game/game_engine.py`**  
+Contains the main game logic, including game states, scoring, accuracy, difficulty selection, input handling, rendering, sound effects, and the game loop.
+
+**`game/target.py`**  
+Handles the target's properties, position, size, lifespan, and behavior.
+
+**`requirements.txt`**  
+Contains the Python dependencies required to run the project.
 
 ---
 
-## Submission Checklist
+## Running the Project
 
-Submission is only the following three things:
+After installing the dependencies, start the game using:
 
-- [] A 10-second video of gameplay **before** your changes, showing the bug/broken behavior
-- [] A 10-second video of gameplay **after** your changes, showing the bug fixed and the new features working
-- [] The Chat/LLM used page link, with the complete chat history
+```bash
+python main.py
+```
+
+Follow the on-screen instructions to select a difficulty and begin playing.
+
+---
+
+## Project Status
+
+**Completed and working successfully.**
+
+The project has been tested and the required gameplay features, difficulty levels, scoring, accuracy tracking, Game Over screen, replay functionality, collision detection, and sound feedback are implemented.
+
+---
